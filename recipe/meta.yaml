@@ -6,21 +6,21 @@ package:
   version: {{ version }}
 
 source:
-  url: https://pypi.io/packages/source/{{ name[0] }}/{{ name }}/ocifs-{{ version }}.tar.gz
+  url: https://pypi.org/packages/source/{{ name[0] }}/{{ name }}/ocifs-{{ version }}.tar.gz
   sha256: a4e25ee1df75ec94d74cdb3b54f1629fc32d3cd0fb6c15fc89296550a9fc45f8
 
 build:
   noarch: python
   script: {{ PYTHON }} -m pip install . -vv --no-deps --no-build-isolation
-  number: 0
+  number: 1
 
 requirements:
   host:
-    - python >=3.6
+    - python {{ python_min }}
     - flit-core >=3.8
     - pip
   run:
-    - python >=3.6
+    - python >={{ python_min }}
     - fsspec >=0.8.7
     - oci >=2.43.1
     - requests
@@ -32,6 +32,7 @@ test:
     - pip check
   requires:
     - pip
+    - python {{ python_min }}
 
 about:
   summary: Convenient filesystem interface over Oracle Cloud's Object Storage
