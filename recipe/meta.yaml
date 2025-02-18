@@ -1,5 +1,5 @@
 {% set name = "ocifs" %}
-{% set version = "1.3.1" %}
+{% set version = "1.3.2" %}
 
 package:
   name: {{ name|lower }}
@@ -7,12 +7,12 @@ package:
 
 source:
   url: https://pypi.org/packages/source/{{ name[0] }}/{{ name }}/ocifs-{{ version }}.tar.gz
-  sha256: a4e25ee1df75ec94d74cdb3b54f1629fc32d3cd0fb6c15fc89296550a9fc45f8
+  sha256: 5e8c28c5d654cbef3e2c6a11f3baa312b2caf922007db05e08c26d8299a952c7
 
 build:
   noarch: python
   script: {{ PYTHON }} -m pip install . -vv --no-deps --no-build-isolation
-  number: 1
+  number: 0
 
 requirements:
   host:
