@@ -33,7 +33,9 @@ tests:
       imports:
         - ocifs
       pip_check: true
-      python_version: ${{ python_min }}
+      python_version:
+        - ${{ python_min }}
+        - "*"
 
 about:
   summary: Convenient filesystem interface over Oracle Cloud's Object Storage
